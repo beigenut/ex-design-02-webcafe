@@ -1,4 +1,3 @@
-# file exceptions
 
-/images/
-/media/
+images/
+media/
