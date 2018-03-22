@@ -1,0 +1,4 @@
+# file exceptions
+
+/images/
+/media/

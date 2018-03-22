@@ -1,0 +1,58 @@
+@charset "utf-8";   /* css 파일에 무조건 선언해줄 것 */
+
+*, *::before, *::after{
+    margin: 0;      
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ff0;
+    
+}
+
+.main{
+    background-color: #fcf;
+    display: grid;      /* 부모가 grid 이면 차일드도 grid. 반대는 flex.. */
+    grid-template-columns: 35% 40% 25%;
+    grid-template-rows: 150px 150px;
+    /* grid-template-areas: "book news" "board twitter site";   갯수만큼 열 갯수 생성 */
+    grid-gap: 20px;
+
+}
+
+.main section{
+    background-color: #3fc;
+    
+}
+
+.recommendBook{
+    grid-area: book;   /* 앞으로 대체해서 부를 이름 */
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.news{
+    grid-area: news;
+    grid-column: 2/4;
+    grid-row: 1;
+}
+
+.board{
+
+    grid-area: board;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.favorite{
+    grid-area: site;
+    grid-row: 2;
+    grid-column: 3;
+}
+
+.twitter{
+    grid-area: twitter;
+    grid-row: 2;
+    grid-column: 2;
+}
