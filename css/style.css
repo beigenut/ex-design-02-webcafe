@@ -27,7 +27,6 @@ body{
 
 .header{
     background-color: yellow;
-    height: 10vh;
 }
 
 .navigation{
@@ -39,33 +38,48 @@ body{
 .main{
     background-color: pink;
     height: 60vh;
-
+    display: flex;
+   
+    justify-content: space-between;  /* box 자체를 가운대 정렬할 수 있음 ref. margin 0 auto; */
+    /* justify-content: space-between 전체 동일한 비율로 나눠씀  */
+    /* justify-content: space-around; 좌우 같은 크기로 부여 1/2 1 1 1/2  */
+    /* align-items: center; 범위 내 가운대 정렬 || align-itmes : y축 반대: justify-content */
+    
+    flex-flow: row wrap;
+    /* align-content: center;  싱글라인(한줄에 박스 쭉)의 경우 align-content 사용
+    align-content: space-between; */
+     
 }
 
-.main section{
-    /* background-color: #3fc;  */
-    
+.main > section{
+    background-color: teal;
+    /* width: 400px;  flex 를 잘 사용하게 되면 grid boostrap 만큼 자동 크기 정렬됨 */
+    height: 30vh;
 }
 
 .recommendBook{
-
+    width: 350px;
 }
 
 .news{
-
+    width: 650px;
 }
 
 .board{
-
+    width: 350px;
 
 }
 
-.favorite{
-  
+main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
+    /* background-color: silver ;   또는 .favorite{ !important } */
+    order: 1;
+    width: 250px;
+    
 }
+
 
 .twitter{
- 
+ width: 400px;
 }
 
 /* ****slogan**** */
