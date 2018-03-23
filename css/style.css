@@ -3,56 +3,79 @@
 *, *::before, *::after{
     margin: 0;      
     padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background-color: #ff0;
+    box-sizing: border-box;  /* 반: content-box 를 쓰게되면 multi-div 선언으로 여백줌 */
     
 }
 
+body{
+    background-color: #fff;
+    
+}
+
+/* container */
+.container{
+    background-color: grey;
+    /* width: 100%;   container width 100% 주고 margin 값주면 화면 짤림 */
+    height: 100vh; /* 화면에 보여지는 전체 크기 1vh = 화면의 1/100 */ 
+    
+}
+/* common layout */
+.header, .main, .slogan {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: yellow;
+    height: 10vh;
+}
+
+.navigation{
+    background-color: lime;
+    height: 10vh;
+}
+
+/* main contents */
 .main{
-    background-color: #fcf;
-    display: grid;      /* 부모가 grid 이면 차일드도 grid. 반대는 flex.. */
-    grid-template-columns: 35% 40% 25%;
-    grid-template-rows: 150px 150px;
-    /* grid-template-areas: "book news" "board twitter site";   갯수만큼 열 갯수 생성 */
-    grid-gap: 20px;
+    background-color: pink;
+    height: 60vh;
 
 }
 
 .main section{
-    background-color: #3fc;
+    /* background-color: #3fc;  */
     
 }
 
 .recommendBook{
-    grid-area: book;   /* 앞으로 대체해서 부를 이름 */
-    grid-column: 1;
-    grid-row: 1;
+
 }
 
 .news{
-    grid-area: news;
-    grid-column: 2/4;
-    grid-row: 1;
+
 }
 
 .board{
 
-    grid-area: board;
-    grid-row: 2;
-    grid-column: 1;
+
 }
 
 .favorite{
-    grid-area: site;
-    grid-row: 2;
-    grid-column: 3;
+  
 }
 
 .twitter{
-    grid-area: twitter;
-    grid-row: 2;
-    grid-column: 2;
+ 
+}
+
+/* ****slogan**** */
+.slogan{
+    background-color: orange; 
+    height: 10vh;
+}
+
+/* ****** footer ***** */
+.footer{
+    background-color: red;
+    height: 10vh;
 }
