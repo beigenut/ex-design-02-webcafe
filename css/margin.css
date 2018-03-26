@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.box{
+    background-color: grey;
+    height: 300px;
+    width: 800px;
+    margin: 51px auto;
+    padding: 0 50px;
+
+}
+
+.box1{
+    background-color: yellow;
+    height: 100px;
+    margin: 0 -50px; /* padding 은 negative value 못 씀. 컨텐츠 박스의 크기를 키울 수 있음 */
+}
+
+.box2{
+    background-color: blue;
+}

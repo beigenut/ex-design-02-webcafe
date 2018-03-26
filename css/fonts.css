@@ -1,8 +1,9 @@
 @font-face {
-  font-family: 'Noto Sans Regular';
-  font-style: normal;
-  font-weight: 400;
+  font-family: 'Noto Sans Regular';   /* 폰트 이름 임의지정 가능 */
+  font-style: normal; /* or italic */
+  font-weight: 400;  /* 보통 400 , 제목 레벨은 700(굵게), 300 - 350 */
   src: local('Noto Sans Regular'), local('NotoSans-Regular'), url('font/eot/NotoSansKR-Regular-Hestia.eot'), url('font/eot/NotoSansKR-Regular-Hestia.eot?#iefix') format('embedded-opentype'), url('font/woff/NotoSansKR-Regular-Hestia.woff') format('woff'), url('font/otf/NotoSansKR-Regular-Hestia.otf') format('opentype');
+  /* eot 익스플로러 woff : 익스플로러 외 otf : 비영리 */
 }
 @font-face {
   font-family: 'Noto Sans Bold';

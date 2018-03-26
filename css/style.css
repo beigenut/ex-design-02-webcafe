@@ -1,4 +1,35 @@
 @charset "utf-8";   /* css 파일에 무조건 선언해줄 것 */
+@import url("./normalize.css");
+@import url("fonts.css");    /* 오타 걱정되면 ./ route 선택!!! */
+
+
+
+/* -----------------------general modules----------------------- */
+
+/* hidden contents */
+.offScreen, .a11y-hidden{  /* display: none; display:none 의 경우 값 자체가 외부에서 읽히지 않게 됨 visibility: hidden;  값 못 읽음. 화면 자체에서는 보이지 않음. 하지만 있던 영역은 살아있음 */
+    background-color: #777373;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    position: absolute;
+    clip: rect(0,0,0,0);
+    font-size: 0;
+    line-height: 0;
+}
+
+/* float invisible control */
+.clearfix::after{     /* Pseudo 코드는 가상의 element 선택자 */
+    content: "";    /* null 값을 부여해서 text 만큼의 height 갖지 못하게 방지 */
+    background-color: yellow;
+    clear: both;  /* clear는 블록 속성에만 적용된다 */
+    display: block; /* 따라서 현재 content의 inline 속성을 block 속성으로 바꿔준다 */
+}
+
+
+
+/* -----------------------초기화 스타일-------------------------------- */
 
 *, *::before, *::after{
     margin: 0;      
@@ -7,9 +38,33 @@
     
 }
 
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;   /* 부모 속성값을 받아온다 */
+}
+
+/* Hidden contents */
+legend{ /* 값은 있지만 보이지는 않는 영역을 만들기 위한 module 상단 .offScreen 참고 */
+    background-color: red;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    position: absolute;
+    clip: rect(0,0,0,0);
+    font-size: 0;
+    line-height: 0;
+}
+
+/* 기본 스타일  */
 body{
     background-color: #fff;
-    
+    color: #181818;   /* #181818 검정색 */
+    font-family: 'Noto Sans', Helvetica, sans-serif; /* font-family *2, generic-font famaily *1 지원 글꼴이 없더라도 비슷한 느낌을 줄 수 있음 글꼴군 가급적 꼭 넣어줄 것 */
 }
 
 /* container */
@@ -27,6 +82,38 @@ body{
 
 .header{
     background-color: yellow;
+    
+}
+
+.logo{
+    background-color: blue;
+    float: left; /* 컨텐츠만큼 width를 갖지만, 여전히 block 속성. float 되면 자동 block*/  
+    margin: 0;
+    padding: 1em ;
+   
+}
+
+/* member link */
+.member{
+    background-color: skyblue;  
+    float: right;
+}
+
+/* search form */
+.search{
+    clear: both;
+    float: right;
+}
+
+.search > fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.member > li{
+    float: left;
+    /* margin-right: 10px; */
 }
 
 .navigation{
@@ -37,55 +124,65 @@ body{
 /* main contents */
 .main{
     background-color: pink;
-    height: 60vh;
-    display: flex;
-   
+    /* float: left; */
+    /* height: 60vh; */
+    /* display: flex;
     justify-content: space-between;  /* box 자체를 가운대 정렬할 수 있음 ref. margin 0 auto; */
     /* justify-content: space-between 전체 동일한 비율로 나눠씀  */
     /* justify-content: space-around; 좌우 같은 크기로 부여 1/2 1 1 1/2  */
-    /* align-items: center; 범위 내 가운대 정렬 || align-itmes : y축 반대: justify-content */
+    /* align-items: center; 범위 내 가운대 정렬 || align-itmes : y축 반대: justify-content 
     
     flex-flow: row wrap;
     /* align-content: center;  싱글라인(한줄에 박스 쭉)의 경우 align-content 사용
     align-content: space-between; */
-     
+    
 }
 
-.main > section{
-    background-color: teal;
+.main > section{  /* main content 안에 각각의 큰 block */
     /* width: 400px;  flex 를 잘 사용하게 되면 grid boostrap 만큼 자동 크기 정렬됨 */
     height: 30vh;
 }
 
 .recommendBook{
     width: 350px;
+    background-color: teal;
+    /* float 로 원래 있던 블록이 겹치게 되면 안에 컨텐츠는 float width 만큼 밀러난다. 하지만 상자는 겹침 */
+    position: relative;
+    float: left;
 }
 
 .news{
     width: 650px;
+    background-color: tan;
+    float: left;
 }
 
 .board{
     width: 350px;
-
+    background-color: skyblue;
+    float: left;
 }
 
 main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
     /* background-color: silver ;   또는 .favorite{ !important } */
-    order: 1;
+    /* order: 1; flex 순서 변경*/
     width: 250px;
-    
+    background-color: orangered;
+    float: right;
 }
-
 
 .twitter{
- width: 400px;
+    width: 400px;
+    background-color: blueviolet;
+    float: left;
 }
 
-/* ****slogan**** */
+/* **** slogan **** */
 .slogan{
-    background-color: orange; 
+    background-color: silver; 
     height: 10vh;
+    clear: both;   /* margin 상하 병합!!에 유의할 것 !! */
+    margin-top: 20px;
 }
 
 /* ****** footer ***** */
