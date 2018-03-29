@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+.fix{   /* PC 화면 내, 고정된 위치에서 계속 나타나는 효과 ex. 광고, liveChat.. */
+    background-color: red;
+    position: fixed;
+    width: 200px;
+    top: 50px;
+    right: 100px;
+}
+
+.box{
+    background-color: red;
+}
+
+.box > img{
+    width: 200px;
+    height: auto;
+    display: block; /* img 삽입시, 하단에 나오는 baseline을 없애주는 효과 */
+}
+
+.sticky{
+    background-color:tan;
+    width: 80%;
+    padding: 20px;
+    position: sticky;
+    top: 10px;
+    /* left: 50px;
+    right: 50px; */
+}

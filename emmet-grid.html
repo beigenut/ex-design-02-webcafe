@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- 광역 속성이라 하단 body tag 안에서도 선언할 수 있음 -->
+<head>
+    <meta charset="UTF-8">      <!-- 가장 앞에서 선언해줄 것, 언어 깨지는 경우 발생할 수 있음 --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      <!-- viewport : 화면에 보이는 영역 | 비율 원래값 user scalable : none 주면 확대/축소 못하게 함 -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">       <!-- 사용자 인터넷 익스플로러 환경을 최신으로 -->
+    <title>Web Cafe</title>     <!-- 시멘틱 markup : 기계도 이해할 수 있는 구조 설계 코딩, header, nav, contents, section || article(rss feed 가능), footer || div roll="header" 로써의 aria skill --> 
+    <link rel="stylesheet" href="css/styleGrid-header.css">  <!-- emmet : link -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  .min.css 는 주석없이 용량 줄인 배포버젼 -->
+   
+
+</head>
+<body>  
+    <div class="container">                        <!-- 한 개의 영역 안에 class 중복 가능 --> 
+        <header class="header clearfix">
+            <!-- emmet: h1.logo>a[href="#"]>img     -->
+            <h1 class="logo"><a href="#"><img src="./images/rwd-logo.png" alt="Web Cafe"></a></h1>
+
+            <!-- emmet: ul.member>li*3>a[href="#"] || emment 개별줄 등록 -->
+            <ul class="member">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">커뮤니티</a></li>
+            </ul>
+            
+            <!-- form.search>fieldset>legend -->
+            <form action="javascript:alert('검색이 완료되었습니다.')" class="search">
+                <fieldset>
+                    <legend class="offScreen">검색폼</legend>
+                    <!-- label+input#search -->
+                    <label for="search" class="a11y-hidden">검색어</label>  <!-- 보통은 hidden -->
+                    <input aria-label="검색어" type="search" id="search" required placeholder=" 검색어를 입력하세요"> <!-- aria-lable 을 쓰게되면 <label 테그를 따로 쓰지 않아도 접근성 면에서 좋음 -->
+                    <button type="submit" class="btn-search">검색</button>
+                </fieldset>
+            </form>        
+        </header>
+        
+        <nav class="navigation">    <!-- nav 남용 자제할 것 -->
+            <h2 class="offScreen">Main Menu</h2>
+        </nav>            
+        
+        <main class="main clearfix">  <!-- main 블록은 한 개만 선언할 것 -->  <!-- aside : 주요 내용을 제외한 옆, 광고 섹션으로 주로 사용 -->
+            <section class="recommendBook">추천 서적</section>
+            <section class="news">새소식</section>
+            <section class="board">게시판</section>
+            <section class="favorite">인기 사이트</section>
+            <section class="twitter">트위터</section>
+        </main>
+        <article class="slogan">슬로건</article>
+        <footer class="footer">푸터</footer>
+    </div>       
+</body>
+</html>

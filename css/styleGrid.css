@@ -1,0 +1,253 @@
+@charset "utf-8";   /* css 파일에 무조건 선언해줄 것 */
+@import url("./normalize.css");
+@import url("fonts.css");    /* 오타 걱정되면 ./ route 선택!!! */
+
+
+
+/* -----------------------general modules----------------------- */
+
+/* hidden contents */
+.offScreen, .a11y-hidden{  /* display: none; display:none 의 경우 값 자체가 외부에서 읽히지 않게 됨 visibility: hidden;  값 못 읽음. 화면 자체에서는 보이지 않음. 하지만 있던 영역은 살아있음 */
+    background-color: #777373;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    position: absolute;
+    clip: rect(0,0,0,0);
+    font-size: 0;
+    line-height: 0;
+}
+
+/* float invisible control */
+.clearfix::after{     /* Pseudo 코드는 가상의 element 선택자 */
+    content: "";    /* null 값을 부여해서 text 만큼의 height 갖지 못하게 방지 */
+    background-color: yellow;
+    clear: both;  /* clear는 블록 속성에만 적용된다 */
+    display: block; /* 따라서 현재 content의 inline 속성을 block 속성으로 바꿔준다 */
+}
+
+
+
+/* -----------------------초기화 스타일-------------------------------- */
+
+*, *::before, *::after{
+    margin: 0;      
+    padding: 0;
+    box-sizing: border-box;  /* 반: content-box 를 쓰게되면 multi-div 선언으로 여백줌 */
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;   /* 부모 속성값을 받아온다 */
+}
+
+/* Hidden contents */
+legend{ /* 값은 있지만 보이지는 않는 영역을 만들기 위한 module 상단 .offScreen 참고 */
+    background-color: red;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    position: absolute;
+    clip: rect(0,0,0,0);
+    font-size: 0;
+    line-height: 0;
+}
+
+/* 기본 스타일  */
+body{
+    background-color: #fff;
+    color: #181818;   /* #181818 검정색 */
+    font-family: 'Noto Sans', Helvetica, sans-serif; /* font-family *2, generic-font famaily *1 지원 글꼴이 없더라도 비슷한 느낌을 줄 수 있음 글꼴군 가급적 꼭 넣어줄 것 */
+}
+
+/* container */
+.container{
+    background-color: grey;
+    /* width: 100%;   container width 100% 주고 margin 값주면 화면 짤림 */
+    height: 100vh; /* 화면에 보여지는 전체 크기 1vh = 화면의 1/100 */ 
+    
+}
+/* common layout */
+.header, .main, .slogan {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: #fff;
+    padding: 0 0 10px 0;
+    position: relative;
+}
+
+.logo{
+    margin: 0;
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%); /* 중간에 오도록, current emelent height의 절반 */
+    /* margin-top: -21px;  수기로 element의 높이 절대값만큼 negative 마진값 부여 */
+}
+
+.logo > a,
+.logo > img{
+    display: block;
+    line-height: 1;
+}
+
+/* member link */
+.member{
+    text-align: right;    /* 보내고자 하는 inline 속성의 요소들의 부모 요소에서 text-align을 사용해야 한다. */
+    font-size: 0;
+
+    /* width: 100px;
+    text-align: justify; width 보다 넘치는 텍스트 라인을 자동 줄 바꿈해준다 */
+    position: relative;   /* 있었던 위치에서 할당된 값만큼만 이동 */ 
+    right: -10px;
+    padding: 15px 20px;
+    font-weight: 600;
+}
+
+.member > li{   /* li 속성은 Block */
+    margin-right: 10px;
+    /* background-color: blueviolet; */
+    display: inline;    /* block 타입을 -> inline 속성을 변경하면 다수의 li 요소는 줄바꿈이 일어남 */
+    font-size: 1rem;
+    /* padding: 5px 10px; */ 
+}
+
+/* ---------------- nav list 들 사이에 구분선 넣기 -------------- */
+
+/* .member > li > a::before{
+    content: "|";
+    color: grey;
+    
+}
+
+.member > li > a:first-child::before{
+    content: "";
+    
+} */
+
+.member > li > a{
+    border-right: 1px solid #666;
+}
+
+.member > li:last-child > a{   /* !!syntax!! :first-child 가 먼저 오고 ::bofere */
+    border-right: 0px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+.member > li > a{
+    padding: 0 10px;  /* 버튼 상하좌우 에 링크 가능한 여백은 최대한 넓게 주기 위해서 44px / 7 mm 정도 */
+    /* width: 200px;    inline 속성을 갖으면 width를 임의 지정할 수 없음 */
+    display: inline-block;     /* 텍스트의 인라인을 갖지만, 속성은 블록으로 height 값 갖음 */
+    /* background-color: tan; */
+}
+
+/* search form */
+.search{
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: flex-end;
+    margin-top: 10px;
+
+}
+
+.search > fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    
+}
+
+input[type="search"]{   
+    padding: 0 8px;
+    height: 35px;   /* normaly 20px */
+    width: 400px; 
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    /* -webkit-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+    margin-right: 100px; */
+
+}
+
+/* input[type="search"]:focus {
+    width: 100%;
+} */
+
+.search > fieldset > .btn-search{  /* 실무 bnt -> <a role="button"> */
+    background-color: #d2b48c;
+    height: 35px;
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.navigation{
+    background-color: lime;
+    height: 10vh;
+}
+
+/* main contents */
+.main{
+    background-color: pink;
+    
+}
+
+.main > section{  /* main content 안에 각각의 큰 block */
+    height: 30vh;
+}
+
+.recommendBook{
+    width: 350px;
+    background-color: teal;
+    position: relative;
+    float: left;
+}
+
+.news{
+    width: 650px;
+    background-color: tan;
+    float: left;
+}
+
+.board{
+    width: 350px;
+    background-color: skyblue;
+    float: left;
+}
+
+main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
+    width: 250px;
+    background-color: orangered;
+    float: right;
+}
+
+.twitter{
+    width: 400px;
+    background-color: blueviolet;
+    float: left;
+}
+
+/* **** slogan **** */
+.slogan{
+    background-color: silver; 
+    height: 10vh;
+}
+
+/* ****** footer ***** */
+.footer{
+    background-color: red;
+    height: 10vh;
+}
