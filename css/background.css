@@ -1,0 +1,65 @@
+@charset "uft-8";
+@import url("reset.css");
+@import url("normalize.css");
+
+body {
+    font-size: 1.5rem; /* 24px */
+}
+.header {
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-shadow: 1px 0 0 black;
+    box-shadow: 0 1px 5px #999;
+    position: sticky;
+    top: 0;
+}
+
+.brand {
+    font-size: 2rem; /* 32px */
+}
+
+.menu {
+    display: flex;
+
+}
+
+.menu > li > a{
+    text-decoration: none; /* 본인에게 줘야 한다 */
+    font-size: 1em;  /* 24px */
+    padding: 0.5em; /* 12px */
+    margin-left: 0.5em /* 12px */
+}
+
+/* ------section------- */
+
+section {
+    height: 50vh;  /* a half of viewpnt */
+
+}
+
+.normal {
+    background: url("../images/normal.jpg") no-repeat 0 0 fixed;
+}
+
+.small {
+    background: #fff;
+}
+
+.large {
+    background: #fff;
+}
+
+.medium {
+    background: url("../images/medium.jpg") no-repeat 0 0 /100% fixed;
+    /* background-size: 100%; */
+}
+
+
+
+footer {
+    height: 100px;
+    box-shadow: inset, 0px -1px 5px 0 #999; /* 상자안으로 x축 y축 크기 스프레드 컬러 */
+}

@@ -28,15 +28,22 @@
 
 /* --------------------------- apha grid --------------------------- */ 
 
-/* .container > .header::after{
+.apha-grid:before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    background: repeating-linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.2) 65px, transparent 65px, transparent 85px);
-    width: 100%;
+    width: 1000px;
     height: 100%;
-} */
+    /* 더 높은 우선 순위를 주기 위해서, relative 속성을 갖는 + 나중에 선언되는 애들이 더 위로 떠서 보여지기 때문에 */
+    z-index: 100; 
+    left: 50%;
+    transform: translateX(-50%);
+    /* size modification */
+    /* background: repeating-linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.2) 65px, transparent 65px, transparent 85px); */
+    background: repeating-linear-gradient(to right, hsla(70, 90%, 60%, 0.4) 0px, hsla(70, 90%, 60%, 0.4) 65px, hsla(200, 90%, 60%, 0.4) 65px, hsla(200, 90%, 60%, 0.4) 85px);
+
+}
 
 /* ----------------------------Reset ---------------------------------*/
 
@@ -81,10 +88,23 @@ body{
     margin: 0 auto;
 }
 
+/* ----------------------------- grid toggle ----------------------------- */
+
+.btn-grid{
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    background: black;
+    color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+}
+
 /* ----------------------------- container ----------------------------- */
 
 .container{
-    height: 100vh; /* 화면에 보여지는 전체 크기 1vh = 화면의 1/100 */    
+    height: auto; /* 화면에 보여지는 전체 크기 1vh = 화면의 1/100 */    
+    position: relative; /* 를 기준으로 할거니까 꼭 ! */
 }
 
 /* ----------------------------- header ------------------------------ */
@@ -220,42 +240,119 @@ input[type="search"]{
 /* -----------------------main contents---------------------------- */
 
 .main{
-    background-color: pink;
+    /* background-color: pink; */
+    display: grid;
+    grid-template-columns: repeat(12, 65px);
+    grid-gap: 0 20px;
+    grid-template-rows: auto, auto;
+    grid-template-areas: "rb rb rb rb nw nw nw nw nw nw nw nw"
+                         "bd bd bd bd tw tw tw tw tw fv fv fv";
+    
+    display: -ms-grid;
+    -ms-grid-template-columns: 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px 20px 65px; 
+    -ms-grid-template-rows: 30vh 30vh;
 }
 
-.main > section{  /* main content 안에 각각의 큰 block */
-    height: 30vh;
-}
+/* ---------------------------------------------------------------- */
+/* ------------------------ recommendBook ------------------------- */
 
 .recommendBook{
-    width: 350px;
-    background-color: teal;
+    grid-area: rb;
     position: relative;
-    float: left;
+    padding: 3%;  
+
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-colum-span: 8;
+    -ms-grid-row-span: 2;    
+}
+
+.recommendBook > .recommendBook-heading {
+    background-image: url("./images/sprite_main.png");
+    background-repeat: no-repeat;
+    min-height: 59px;
+    /* background-position:      */
+    display: inline-block;
+    font-size: 23px;
+    padding-left: 60px;
+}
+
+.recommendBook > .recommendBook-heading > .en-heading {
+    color: #abd375;
+    display: block;
+}
+
+.recommendBook > figure {
+    margin: 0 auto;
+    width: 17em;
+    text-align: center;
+}
+
+.recommendBook > figure > img {
+    /* transform: scale(120%); */
+    max-width: 100%;
+}
+
+.recommendBook-cover > figcaption {
+    text-align: center;
+}
+
+.recommendBook-detail{
+    text-align: center;
+}
+
+.recommendBook-author,
+.recommendBook-author-name {
+    display: inline-block;
+}
+
+.recommendBook-rating {
+    font-size: 2em;
+    color: #abd375;
+}
+
+.recommendBook-surmary {
+    line-height: 1.5;
 }
 
 .news{
-    width: 650px;
+    grid-area: nw;
     background-color: tan;
-    float: left;
+
+    -ms-grid-column: 9;
+    -ms-grid-row: 1;
+    -ms-grid-colum-span: 23;
+    -ms-grid-row-span: 2;
 }
 
 .board{
-    width: 350px;
+    grid-area: bd;
     background-color: skyblue;
-    float: left;
+
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+    -ms-grid-colum-span: 8;
+    -ms-grid-row-span: 3;
 }
 
 main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
-    width: 250px;
+    grid-area: fv;
     background-color: orangered;
-    float: right;
+
+    -ms-grid-column: 9;
+    -ms-grid-row: 2;
+    -ms-grid-colum-span: 18;
+    -ms-grid-row-span: 3;
 }
 
 .twitter{
-    width: 400px;
+    grid-area: tw;
     background-color: blueviolet;
-    float: left;
+
+    -ms-grid-column: 19;
+    -ms-grid-row: 2;
+    -ms-grid-colum-span: 24;
+    -ms-grid-row-span: 3;
 }
 
 /* ---------------------------------------------------------------- */

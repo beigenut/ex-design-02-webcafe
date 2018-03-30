@@ -11,7 +11,7 @@
 
 </head>
 <body>  
-    <div class="container">                        <!-- 한 개의 영역 안에 class 중복 가능 --> 
+    <div class="container apha-grid">                        <!-- 한 개의 영역 안에 class 중복 가능 --> 
         <header class="header clearfix">
             <!-- emmet: h1.logo>a[href="#"]>img     -->
             <h1 class="logo"><a href="#"><img src="./images/rwd-logo.png" alt="Web Cafe"></a></h1>
@@ -22,7 +22,7 @@
                 <li><a href="#">회원가입</a></li>
                 <li><a href="#">커뮤니티</a></li>
             </ul>
-            
+
             <!-- form.search>fieldset>legend -->
             <form action="javascript:alert('검색이 완료되었습니다.')" class="search">
                 <fieldset>
@@ -35,12 +35,12 @@
             </form>        
         </header>
         
-        <section class="top-nav">
+        <section class="top-nav" aria-label="Main Menu" title="Main Menu">
             <nav class="navigation">    <!-- nav 남용 자제할 것 -->
                 <h2 class="offScreen">Main Menu</h2>
                 <div class="about-html">
                     <ul>
-                        <span>HTML에 대해</span>
+                        <span>HTML에 대해</span>    <!-- ul 테그 안에 li 외에 올 수 없음 -->
                         <li><a href="#">HTML5 소개</a></li>
                         <li><a href="#">레퍼런스 소개</a></li>
                         <li><a href="#">활용예제</a></li>
@@ -82,14 +82,46 @@
         </section>
         
         <main class="main clearfix">  <!-- main 블록은 한 개만 선언할 것 -->  <!-- aside : 주요 내용을 제외한 옆, 광고 섹션으로 주로 사용 -->
-            <section class="recommendBook">추천 서적</section>
+            <section class="recommendBook">
+                <h2 class="recommendBook-heading">
+                    추천서적
+                    <span class="en-heading">
+                        Recommend Book
+                    </span>
+                </h2>
+
+                <figure class="recommnedBook-cover">
+                    <img src="images/book_rwd.jpg" alt="Responsive-Web-Guide-Book" aria-labelledby="cover-caption">
+                    <figcaption id="cover-caption">Responsive Web Guide Book</figcaption>
+                </figure>
+
+                <dl class="recommendBook-detail">
+                    <dt class="recommendBook-author">저자</dt>
+                    <dd class="recommendBook-author-name">김데레사</dd>
+                    <dt class="a11y-hidden">rating</dt>
+                    <dd class="recommendBook-rating" aria-label="4 out-of 5">★★★★☆</dd>
+                </dl>
+
+                <p class="recommendBook-surmary">
+                    반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한 레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한 해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
+                </p>
+            </section>
+
             <section class="news">새소식</section>
+
             <section class="board">게시판</section>
+
             <section class="favorite">인기 사이트</section>
+
             <section class="twitter">트위터</section>
         </main>
+
         <article class="slogan">슬로건</article>
+
         <footer class="footer">푸터</footer>
     </div>       
+
+    <button class="btn-grid" type="button">Grid</button>
+    <script src="js/webcafe.js"></script>
 </body>
 </html>
