@@ -200,15 +200,15 @@ input[type="search"]{
     grid-template-rows: auto;
     width: 1000px;
     margin: 0 auto;
-    /* padding-left: 2%; */
-    padding: 1% 0 1% 2%;
+    padding: 1% 0;
 }
 
 .top-nav > .navigation > div {
     color: #fff; 
+    padding-left: 15%;
 }
 
-.top-nav > .navigation > div > ul > span {
+.top-nav > .navigation > div > span {
     display: inline-block;
     cursor: pointer;   /* text 가 링크 인 것 처럼 마우스 포인터를 바꿔준다 */
     margin-bottom: 5%;
@@ -217,8 +217,8 @@ input[type="search"]{
     text-shadow: 1px 0 0 #000, 1px 1px #000, -1px 0 0 #000, 0 -1px 0 #000;
 }
 
-.top-nav > .navigation > div > ul > span:hover,
-.top-nav > .navigation > div > ul > span:active {
+.top-nav > .navigation > div > span:hover,
+.top-nav > .navigation > div > span:active {
     color: yellow;
     font-size: 1.5em; 
     transition: color 0.3s 0s cubic-bezier(0,-1.15,.83,.67), font-size 0.3s 0.3s ease-in-out;  /* 상위에 있는 속성에 transition! */  
@@ -253,13 +253,33 @@ input[type="search"]{
     -ms-grid-template-rows: 30vh 30vh;
 }
 
+.main-section {
+    background-image: url("./images/sprite_main.png");
+    background-repeat: no-repeat;
+    min-height: 59px;
+    font-size: 20px;
+    padding-left: 65px;
+    margin: 0.6rem 0;
+    line-height: 1.5;
+}
+
+.en-heading {
+    display: block;
+    font-size: 80%;
+}
+
+.main [class$="-summary"] {
+    line-height: 1.4;
+    margin: 1em 0;
+}
+
 /* ---------------------------------------------------------------- */
 /* ------------------------ recommendBook ------------------------- */
 
 .recommendBook{
     grid-area: rb;
     position: relative;
-    padding: 3%;  
+    padding: 0 0.6rem;  
 
     -ms-grid-column: 1;
     -ms-grid-row: 1;
@@ -267,30 +287,19 @@ input[type="search"]{
     -ms-grid-row-span: 2;    
 }
 
-.recommendBook > .recommendBook-heading {
-    background-image: url("./images/sprite_main.png");
-    background-repeat: no-repeat;
-    min-height: 59px;
-    /* background-position:      */
-    display: inline-block;
-    font-size: 23px;
-    padding-left: 60px;
-}
-
 .recommendBook > .recommendBook-heading > .en-heading {
     color: #abd375;
-    display: block;
 }
 
 .recommendBook > figure {
     margin: 0 auto;
-    width: 17em;
+    width: 80%;
     text-align: center;
 }
 
 .recommendBook > figure > img {
-    /* transform: scale(120%); */
     max-width: 100%;
+    height: auto;
 }
 
 .recommendBook-cover > figcaption {
@@ -299,6 +308,12 @@ input[type="search"]{
 
 .recommendBook-detail{
     text-align: center;
+    margin: 15px 0;
+    font-size: 100%;
+}
+
+.recommendBook-detail > dd:last-child {
+    font-size: 120%;
 }
 
 .recommendBook-author,
@@ -311,13 +326,13 @@ input[type="search"]{
     color: #abd375;
 }
 
-.recommendBook-surmary {
-    line-height: 1.5;
-}
+
+/* ---------------------------------------------------------------- */
+/* ---------------------------- news ------------------------------ */
 
 .news{
     grid-area: nw;
-    background-color: tan;
+    padding: 0 0.6rem;
 
     -ms-grid-column: 9;
     -ms-grid-row: 1;
@@ -325,9 +340,31 @@ input[type="search"]{
     -ms-grid-row-span: 2;
 }
 
+.news-heading {
+    background-position-y: -230px;
+}
+
+.news > .news-heading > .en-heading {
+    color: #e8ca58;
+}
+
+.news > .news-container > .news-video { 
+    max-width: 100%;
+    height: auto;
+}
+
+.news > .news-container > .news-date {
+    display: block;
+    text-align: right;
+}
+
+/* ---------------------------------------------------------------- */
+/* ---------------------------- board ------------------------------ */
+
 .board{
     grid-area: bd;
     background-color: skyblue;
+    padding: 0 0.6rem;
 
     -ms-grid-column: 1;
     -ms-grid-row: 2;
@@ -338,6 +375,7 @@ input[type="search"]{
 main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
     grid-area: fv;
     background-color: orangered;
+    padding: 0 0.6rem;
 
     -ms-grid-column: 9;
     -ms-grid-row: 2;
@@ -348,6 +386,7 @@ main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높�
 .twitter{
     grid-area: tw;
     background-color: blueviolet;
+    padding: 0 0.6rem;
 
     -ms-grid-column: 19;
     -ms-grid-row: 2;

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SIGN-IN - Web Cafe</title>
+</head>
+<body>
+    <h1 class="join-heading">Sign-in</h1>
+    <!-- action : script | id : labeling | class : css | name : DB | method : get/post  -->
+    <form action="https://formspree.io/beigenut@email.com" id="join-form" class="join-form" name="join-form" method="post">    
+        <fieldset>
+            <legend class="offScreen">sign-in form</legend>
+            <p class="required fields"><em>*</em> is required field</p>
+            <p class="p__form-name">
+                <label for="form-name" class="">Name <em>*</em></label>
+                <input id="form-name" aria-label="name" type="text" required placeholder="John Doe">
+            </p>
+            <p class="p__form-id">
+                <label for="form-id" class="">ID <em>*</em></label>
+                <input id="form-id" aria-label="id" type="text" required placeholder="Guest">
+                <button type="button" class="btn__id-check">ID Varidation</button>
+            </p>
+            <p class="p__form-password">
+                <label for="form-password" class="">Password <em>*</em></label>
+                <input id="form-password" aria-label="password" type="password" required placeholder="4-8 words including number">
+            </p>
+            <p class="p__form-repassword">
+                <label for="form-repassword" class="">Re-password <em>*</em></label>
+                <input id="form-repassword" aria-label="re-password" type="password" required placeholder="4-8 words including number">
+            </p>
+            <p class="p__form-address">
+                <label for="form-address" class="">Address</label>
+                <button type="button" class="btn__sign-in">ZIP Code</button>
+                <input type="text" title="first 3 digits" id="first-zipcode" aria-label="first-zipcode" type="number"> -
+                <input type="text" title="last 3 digits" id="last-zipcode" aria-label="last-zipcode" type="number">     
+                <input id="form-address" aria-label="form-address" type="text" placeholder="# city state nation">
+            </p>
+            <p class="p__form-contanct">
+                <label for="form-contact" class="">Contact</label>
+                <input id="form-contact" aria-label="contact" type="tel" placeholder="2010001234">
+            </p>
+            <p class="p__form-email">
+                <label for="form-email" class="">Email <em>*</em></label>
+                <input id="form-email" aria-label="email" type="email" placeholder="johndoe@gmail.com" required>
+            </p>
+            <p class="p__form-subscribe">
+                <span>Mail Subscribe <em>*</em></span>
+                Would you like to subscribe our news letter?
+                <input id="form-subscribe-yes" type="radio" value="yes" checked name="subscribe">
+                <label for="form-subscribe-yes">Yes</label>                
+                <input id="form-subscribe-no" value="no" type="radio" name="subscribe">
+                <label for="form-subscribe-no">No</label>
+            </p>
+            <div class="p__form-bnt">
+                <button class="bnt-sign-in" type="submit">Sign in</button>
+                <button class="bnt-cancle" type="reset">Cancle</button>             
+            </div>
+
+        </fieldset>
+</form> 
+</body>
+</html>

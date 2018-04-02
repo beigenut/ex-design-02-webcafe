@@ -39,40 +39,40 @@
             <nav class="navigation">    <!-- nav 남용 자제할 것 -->
                 <h2 class="offScreen">Main Menu</h2>
                 <div class="about-html">
-                    <ul>
-                        <span>HTML에 대해</span>    <!-- ul 테그 안에 li 외에 올 수 없음 -->
+                    <span>HTML에 대해</span>    <!-- ul 테그 안에 li 외에 올 수 없음 -->
+                    <ul>    
                         <li><a href="#">HTML5 소개</a></li>
                         <li><a href="#">레퍼런스 소개</a></li>
                         <li><a href="#">활용예제</a></li>
                     </ul>
                 </div>
                 <div class="about-css">
+                    <span>CSS에 대해</span>
                     <ul>
-                        <span>CSS에 대해</span>
                         <li><a href="#">CSS 소개</a></li>
                         <li><a href="#">CSS2 VS CSS3</a></li>
                         <li><a href="#">CSS 애니메이션</a></li>
                     </ul>
                 </div>
                 <div class="web-standard">
-                    <ul>
-                        <span>웹표준/웹접근성</span>
+                    <span>웹표준/웹접근성</span>
+                    <ul>                        
                         <li><a href="#">웹표준 이란?</a></li>
                         <li><a href="#">웹접근성의 개요</a></li>
                         <li><a href="#">HTML5의 현재와 미래</a></li>
                     </ul>
                 </div>
                 <div class="qna">
-                    <ul>
-                        <span>묻고 답하기</span>
+                    <span>묻고 답하기</span>
+                    <ul>                        
                         <li><a href="#">묻고 답하기</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">1대1 질문</a></li>
                     </ul>
                 </div>
                 <div class="files">
-                    <ul>
-                        <span>자료실</span>
+                    <span>자료실</span>
+                    <ul>                        
                         <li><a href="#">공개 자료실</a></li>
                         <li><a href="#">이미지 자료실</a></li>
                         <li><a href="#">예제 자료실</a></li>
@@ -83,7 +83,7 @@
         
         <main class="main clearfix">  <!-- main 블록은 한 개만 선언할 것 -->  <!-- aside : 주요 내용을 제외한 옆, 광고 섹션으로 주로 사용 -->
             <section class="recommendBook">
-                <h2 class="recommendBook-heading">
+                <h2 class="recommendBook-heading main-section">
                     추천서적
                     <span class="en-heading">
                         Recommend Book
@@ -102,18 +102,63 @@
                     <dd class="recommendBook-rating" aria-label="4 out-of 5">★★★★☆</dd>
                 </dl>
 
-                <p class="recommendBook-surmary">
+                <p class="recommendBook-summary">
                     반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한 레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한 해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
                 </p>
             </section>
 
-            <section class="news">새소식</section>
+            <section class="news">
+                <h2 class="news-heading main-section">
+                    새소식
+                    <span class="en-heading">
+                        Web Cafe News
+                    </span>
+                </h2>
 
-            <section class="board">게시판</section>
+                <figure class="news-container">
+                    <video class="news-video" poster="./media/poster.jpg" controls preload="auto">
+                        <source src="./media/Stories.mp4" type="video/mp4">
+                        <track src="media/stories-en.vtt" kind="captions" srclang="en" label="english caption">
+                    </video>
+                    <figcaption class="news-caption offScreen">google developer story</figcaption>
+                    <p class="news-summary">
+                            구글플레이는 다양한 분야에서 활약하고 있는 국내 개발사들을 모시고 직접 이야기를 나눠보는 ‘구글플레이 개발자와의 대화’ 행사를 정기적으로 개최할 예정입니다. 오늘 3월 29일(수) 구글 캠퍼스 서울에서 열린 첫 번째 ‘구글플레이 개발자와의 대화’는 ‘해외에서 빵터진 한국 앱'을 주제로 진행됐는데요, 국내 앱 시장은 물론 글로벌 시장에서도 주목 받으며 글로벌 진출의 본보기가 되고 있는 개발사 세 곳과 함께 했습니다.
+                    </p>
+                    <time class="news-date icon-calendar" datetime="2018-04-02T14:37:02">
+                        2018.04.02
+                    </time>
+                </figure>
+            </section>
 
-            <section class="favorite">인기 사이트</section>
+            <section class="board">
+                <h2 class="news-heading main-section">
+                    Board
+                    <span class="en-heading">
+                        Web Cafe News
+                    </span>
+                </h2>
 
-            <section class="twitter">트위터</section>
+            </section>
+
+            <section class="favorite">
+                <h2 class="news-heading main-section">
+                    Favorite Site
+                    <span class="en-heading">
+                        Web Cafe News
+                    </span>
+                </h2>
+                
+                </section>
+
+            <section class="twitter">
+                <h2 class="news-heading main-section">
+                    twitter
+                    <span class="en-heading">
+                        Web Cafe News
+                    </span>
+                </h2>
+
+            </section>
         </main>
 
         <article class="slogan">슬로건</article>
@@ -122,6 +167,7 @@
     </div>       
 
     <button class="btn-grid" type="button">Grid</button>
+    <script src="js/jquery.min.js"></script>
     <script src="js/webcafe.js"></script>
 </body>
 </html>
