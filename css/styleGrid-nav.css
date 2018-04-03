@@ -21,7 +21,6 @@
 /* float invisible control */
 .clearfix::after{     /* Pseudo 코드는 가상의 element 선택자 */
     content: "";    /* null 값을 부여해서 text 만큼의 height 갖지 못하게 방지 */
-    /* background-color: yellow; */
     clear: both;  /* clear는 블록 속성에만 적용된다 */
     display: block; /* 따라서 현재 content의 inline 속성을 block 속성으로 바꿔준다 */
 }
@@ -98,6 +97,7 @@ body{
     color: #fff;
     padding: 1em;
     border-radius: 5px;
+    z-index: 100;
 }
 
 /* ----------------------------- container ----------------------------- */
@@ -302,7 +302,8 @@ input[type="search"]{
     height: auto;
 }
 
-.recommendBook-cover > figcaption {
+.recommnedBook-cover > figcaption {
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -363,14 +364,60 @@ input[type="search"]{
 
 .board{
     grid-area: bd;
-    background-color: skyblue;
     padding: 0 0.6rem;
+    height: auto;
+    position: relative;
 
     -ms-grid-column: 1;
     -ms-grid-row: 2;
     -ms-grid-colum-span: 8;
     -ms-grid-row-span: 3;
 }
+
+.board-heading {
+    background-position-y: -115px;
+}
+
+.board > .board-heading > .en-heading {
+    color: #c3b6a6;
+}
+
+.board-list > li {
+    margin: 5px 0;
+}
+
+.text-overflow {
+    text-overflow: ellipsis; 
+    width: calc(100% - 100px);  /* 16px*13 = 208 */
+    overflow: hidden;
+    white-space: nowrap; 
+    display: inline-block;
+    padding: 0.3em 0;
+}
+
+.board-list > li:hover  { 
+    color: red;
+}
+
+.board-list > li > a {
+    /* inline-block 속성이 갖는 baseline 때문에 일어나는 높낮이를 조절하기 위해서 */    
+    vertical-align: middle;  
+}
+
+.board-more {
+    font-size: 0.9rem;
+    top: 0.9em;
+    right: -0.5em;
+    padding: 0.5em;
+    position: absolute;    
+}
+
+.board-more > .icon-plus {
+    color: green;
+}
+
+/* ---------------------------------------------------------------- */
+/* --------------------------- favorite---------------------------- */
 
 main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높기 때문 */
     grid-area: fv;
@@ -383,15 +430,61 @@ main > .favorite{  /* .main > section 의 우선 순위가 .fovarite 보다 높�
     -ms-grid-row-span: 3;
 }
 
-.twitter{
+
+/* ---------------------------------------------------------------- */
+/* --------------------------- twitter----------------------------- */
+
+.twitter {
     grid-area: tw;
-    background-color: blueviolet;
     padding: 0 0.6rem;
 
     -ms-grid-column: 19;
     -ms-grid-row: 2;
     -ms-grid-colum-span: 24;
     -ms-grid-row-span: 3;
+}
+
+.twitter-heading {
+    background-position-y: -460px;
+}
+
+.twitter > .twitter-heading > .en-heading {
+    color: #3badeb;
+}
+
+.twitter-user-content {
+    display: inline-block;
+}
+
+.twitter-user-name,
+.twitter-user-id {
+    display: inline-block;
+}
+
+.twitter-user-name {
+    color: #3badeb;
+}
+
+.twitter-user-id {
+    font-family: "Noto Sans Bold";
+}
+
+.twitter-profile {
+    float: right; /* float 처리하면 border-box 에서 content-box 로 변경? */
+}
+
+.twitter-profile > .twitter-thumbnail {
+    border-radius: 50%;
+    border: 1px solid #333;
+    padding: 5px;
+    vertical-align: top; /* baseline 제거 */
+    margin: 0 0 10px 5px;
+}
+
+.twitter-date {
+    display: block;
+    text-align: right;
+    clear: both;
 }
 
 /* ---------------------------------------------------------------- */

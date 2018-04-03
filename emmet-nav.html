@@ -6,23 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">       <!-- 사용자 인터넷 익스플로러 환경을 최신으로 -->
     <title>Web Cafe</title>     <!-- 시멘틱 markup : 기계도 이해할 수 있는 구조 설계 코딩, header, nav, contents, section || article(rss feed 가능), footer || div roll="header" 로써의 aria skill --> 
     <link rel="stylesheet" href="css/styleGrid-nav.css">  <!-- emmet : link -->
+    <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  .min.css 는 주석없이 용량 줄인 배포버젼 -->
-   
 
 </head>
 <body>  
-    <div class="container apha-grid">                        <!-- 한 개의 영역 안에 class 중복 가능 --> 
+    <div class="container"> <!-- 한 개의 영역 안에 class 중복 가능 --> 
         <header class="header clearfix">
             <!-- emmet: h1.logo>a[href="#"]>img     -->
             <h1 class="logo"><a href="#"><img src="./images/rwd-logo.png" alt="Web Cafe"></a></h1>
-
             <!-- emmet: ul.member>li*3>a[href="#"] || emment 개별줄 등록 -->
             <ul class="member">
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
                 <li><a href="#">커뮤니티</a></li>
             </ul>
-
             <!-- form.search>fieldset>legend -->
             <form action="javascript:alert('검색이 완료되었습니다.')" class="search">
                 <fieldset>
@@ -89,19 +87,16 @@
                         Recommend Book
                     </span>
                 </h2>
-
                 <figure class="recommnedBook-cover">
                     <img src="images/book_rwd.jpg" alt="Responsive-Web-Guide-Book" aria-labelledby="cover-caption">
-                    <figcaption id="cover-caption">Responsive Web Guide Book</figcaption>
+                    <figcaption id="cover-caption"><strong>Responsive Web Guide Book</strong></figcaption>
                 </figure>
-
                 <dl class="recommendBook-detail">
                     <dt class="recommendBook-author">저자</dt>
                     <dd class="recommendBook-author-name">김데레사</dd>
                     <dt class="a11y-hidden">rating</dt>
                     <dd class="recommendBook-rating" aria-label="4 out-of 5">★★★★☆</dd>
                 </dl>
-
                 <p class="recommendBook-summary">
                     반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한 레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한 해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
                 </p>
@@ -114,15 +109,14 @@
                         Web Cafe News
                     </span>
                 </h2>
-
                 <figure class="news-container">
-                    <video class="news-video" poster="./media/poster.jpg" controls preload="auto">
+                    <video class="news-video" poster="./media/poster.jpg" controls preload="auto" muted>
                         <source src="./media/Stories.mp4" type="video/mp4">
-                        <track src="media/stories-en.vtt" kind="captions" srclang="en" label="english caption">
+                        <track src="media/stories-en.vtt" kind="subtitles" srclang="en" label="english caption">
                     </video>
                     <figcaption class="news-caption offScreen">google developer story</figcaption>
                     <p class="news-summary">
-                            구글플레이는 다양한 분야에서 활약하고 있는 국내 개발사들을 모시고 직접 이야기를 나눠보는 ‘구글플레이 개발자와의 대화’ 행사를 정기적으로 개최할 예정입니다. 오늘 3월 29일(수) 구글 캠퍼스 서울에서 열린 첫 번째 ‘구글플레이 개발자와의 대화’는 ‘해외에서 빵터진 한국 앱'을 주제로 진행됐는데요, 국내 앱 시장은 물론 글로벌 시장에서도 주목 받으며 글로벌 진출의 본보기가 되고 있는 개발사 세 곳과 함께 했습니다.
+                        구글플레이는 다양한 분야에서 활약하고 있는 국내 개발사들을 모시고 직접 이야기를 나눠보는 ‘구글플레이 개발자와의 대화’ 행사를 정기적으로 개최할 예정입니다. 오늘 3월 29일(수) 구글 캠퍼스 서울에서 열린 첫 번째 ‘구글플레이 개발자와의 대화’는 ‘해외에서 빵터진 한국 앱'을 주제로 진행됐는데요, 국내 앱 시장은 물론 글로벌 시장에서도 주목 받으며 글로벌 진출의 본보기가 되고 있는 개발사 세 곳과 함께 했습니다.
                     </p>
                     <time class="news-date icon-calendar" datetime="2018-04-02T14:37:02">
                         2018.04.02
@@ -131,33 +125,71 @@
             </section>
 
             <section class="board">
-                <h2 class="news-heading main-section">
+                <h2 class="board-heading main-section" id="board">
                     Board
                     <span class="en-heading">
                         Web Cafe News
                     </span>
                 </h2>
-
+                <!-- <div class="board-box"> -->
+                    <ul class="board-list">
+                        <li class="clearfix">
+                            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+                            <time datetime="2018-04-02">2018.04.02</time>
+                        </li>
+                        <li class="clearfix">
+                            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+                            <time datetime="2018-04-02">2018.04.02</time>
+                        </li>
+                        <li class="clearfix">
+                            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+                            <time datetime="2018-04-02">2018.04.02</time>
+                        </li>
+                        <li class="clearfix">
+                            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+                            <time datetime="2018-04-02">2018.04.02</time>
+                        </li>
+                        <li class="clearfix">
+                            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+                            <time datetime="2018-04-02">2018.04.02</time>
+                        </li>
+                    </ul>
+                <!-- </div> -->
+                <a href="#" title="#board" class="board-more"><i class="ion-plus"></i> More</a>
             </section>
 
             <section class="favorite">
-                <h2 class="news-heading main-section">
+                <h2 class="favorite-heading main-section">
                     Favorite Site
                     <span class="en-heading">
                         Web Cafe News
                     </span>
-                </h2>
-                
-                </section>
+                </h2>    
+            </section>
 
             <section class="twitter">
-                <h2 class="news-heading main-section">
+                <h2 class="twitter-heading main-section">
                     twitter
                     <span class="en-heading">
                         Web Cafe News
                     </span>
                 </h2>
 
+                <dl class="twitter-user-content">
+                    <dt class="offScreen">user name</dt>
+                    <dd class="twitter-user-name">김데레사</dd
+                    ><dt class="offScreen">user id</dt
+                    ><dd class="twitter-user-id"><a href="#">@seulbinim</a></dd>
+                </dl>
+                
+                <figure class="twitter-profile">
+                    <img src="images/seulbinim.jpg" alt="" class="twitter-thumbnail">
+                    <figcaption class="offScreen">user profile </figcaption>
+                </figure>
+                <p class="twitter-summary">
+                    웹표준 핵심 가이드북 개정판 출시 기념으로
+                </p>
+                <time datetime="2018-04-02" class="twitter-date icon-calendar">2018.04.02</time>
             </section>
         </main>
 
