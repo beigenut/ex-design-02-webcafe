@@ -1,4 +1,102 @@
 $(document).ready(function() {
+    var navMobile = $('.navigation');
+    var btnMobile = $('.btn-menubar');
+    var spanMobile = $('.menubar');
+    var menuMobile = $('.menu');
+    var sloganMobile = $('.slogan-heading');
+
+    var menuLists = $('.menu-list');
+    var menuItems = $('.menu-item');
+    var subMenus = $('.sub-menu');
+    var offGrid = $('.btn-grid');
+    
+    /* matchmedia 를 이용해서 원하는 뷰포트에만 클래스 삽입 */
+    var viewport = window.matchMedia('(max-width: 999px)');
+    if(viewport.matches){
+        offGrid.addClass('offScreen');
+        menuItems.addClass('icon-plus');
+        menuItems.attr('role','button');
+        menuItems.attr('aria-expanded','false');
+        menuItems.attr('aria-haspopup','true');
+        menuItems.attr('tabindex','0');
+        sloganMobile.css(
+            { 'display':'none' }
+        );
+
+        btnMobile.on('click',function(event){
+            event.preventDefault();
+            navMobile.toggleClass('is-act');
+            menuMobile.css(
+                { 'transition-property':'all','transition-duration':'0.2s'}
+            );
+            if(navMobile.hasClass('is-act')){
+                btnMobile.attr('aria-label','a button to close menu');
+
+            }else{
+                bntMobile.attr('aria-label','a button to open menu')
+
+            }
+        });
+
+        menuItems.on('click keydown', function(event){
+            /* click 이 되거나 ||  `키보드가 눌렸을 때` 이면서 'enter' 키가 눌렸을 때 */
+            if(event.type === 'click' || (event.type === 'keydown' && event.keyCode === 13)){
+                menuLists.removeClass('menu-act');
+                menuItems.addClass('icon-plus');
+                subMenus.css(
+                    { 'display':'none'}
+                )
+                menuItems.attr('tabindex','0');
+
+                $(this).parent().addClass('menu-act');
+                if($(this).parent().hasClass('menu-act')){
+                    $(this).addClass('icon-minus');
+                    $(this).removeClass('icon-plus');
+                    $(this).attr('aria-expanded','true');
+                    $(this).attr('aria-haspopup','true');
+                    $(this).siblings().css(
+                        { 'display':'block' }
+                    )
+                } else{
+                    $(this).attr('aria-expanded','false');
+                }
+            }
+            
+            menuMobile.on('focusout',function(){
+                navMobile.removeClass('is-act');
+            });
+
+            menuMobile.on('focusin',function(){
+                navMobile.addClass('is-act');
+            });
+
+
+
+            // if(event.type === 'click' || (event.type === 'keydown'&&event.keyCode === 13)){
+            //     menuLists.removeClass('menu-act');
+            //     /* html 해당 요소에 클래스 class="" 를 삽입 */
+            //     menuItems.addClass('icon-plus');
+            //     subMenus.css(
+            //         { "display":"none"}
+            //     );
+            //     $(this).parent().addClass('menu-act');
+            //     if ($(this).parent().hasClass('menu-act')) {
+            //         /* html 요소 삽입 title="title" */
+            //         $(this).attr('aria-expanded', 'true');  
+            //         $(this).addClass('icon-minus');
+            //         $(this).removeClass('icon-plus');
+            //         /* 해당 요소의 css 에 속성을 삽입 */
+            //         $(this).siblings().css(
+            //             { 'display':'block'}
+            //         );
+            //     } else {
+            //         $(this).attr('aria-expanded','false');
+            //     }
+            // }
+        });
+    }
+
+
     var container=$('.container');
     var grid = $('.btn-grid');
     var video = $('.news-video');
@@ -11,14 +109,21 @@ $(document).ready(function() {
         this.play();
         $(this).prop('muted', false);
     });
+
     video.on('mouseleave focusout', function() {
         this.pause();
         this.volume = 0;
     });
+
     grid.click(function() {
        container.toggleClass('apha-grid');
     });
+
 });
+
+
+
+
 
 // var container = document.querySelector('.container');
 // var grid = document.querySelector('.btn-grid');
@@ -27,6 +132,11 @@ $(document).ready(function() {
 //     console.log('ok');
 //     container.classList.toggle('apha-grid');
 // });
+
+
+
+
+
 
 // $ : jquery || doc : html {body} || ready : 문서 준비 객체 (func.)
 $(document).ready(function(){
@@ -42,6 +152,9 @@ $(document).ready(function(){
     });
 }); 
 
+
+
+
 // native method 
 var video = document.querySelector('.news-video');
 
@@ -51,3 +164,21 @@ video.addEventListener('mouseenter focusin', function(){
 video.addEventListener('mouseleave focusout', function(){
     this.removeAttribute('autoplay');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
