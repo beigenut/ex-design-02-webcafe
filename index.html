@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 광역 속성이라 하단 body tag 안에서도 선언할 수 있음 -->
+
+<head>
+  <meta charset="UTF-8"> <!-- 가장 앞에서 선언해줄 것, 언어 깨지는 경우 발생할 수 있음 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- viewport : 화면에 보이는 영역 | 비율 원래값 user scalable : none 주면 확대/축소 못하게 함 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- 사용자 인터넷 익스플로러 환경을 최신으로 -->
+  <title>Web Cafe</title>
+  <!-- 시멘틱 markup : 기계도 이해할 수 있는 구조 설계 코딩, header, nav, contents, section || article(rss feed 가능), footer || div roll="header" 로써의 aria skill -->
+  <link rel="stylesheet" href="css/styleGrid-media.css"> <!-- emmet : link -->
+  <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/media-query.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  .min.css 는 주석없이 용량 줄인 배포버젼 -->
+
+</head>
+
+<body>
+  <div class="container">
+    <!-- 한 개의 영역 안에 class 중복 가능 -->
+    <header class="header clearfix">
+      <!-- emmet: h1.logo>a[href="#"]>img     -->
+      <h1 class="logo"><a href="#"><img src="./images/rwd-logo.png" alt="Web Cafe"></a></h1>
+      <!-- emmet: ul.member>li*3>a[href="#"] || emment 개별줄 등록 -->
+      <ul class="member">
+        <li><a href="#">로그인</a></li>
+        <li><a href="#">회원가입</a></li>
+        <li><a href="#">커뮤니티</a></li>
+      </ul>
+      <!-- form.search>fieldset>legend -->
+      <form action="javascript:alert('검색이 완료되었습니다.')" class="search">
+        <fieldset>
+          <legend class="offScreen">검색폼</legend>
+          <!-- label+input#search -->
+          <label for="search" class="a11y-hidden">검색어</label> <!-- 보통은 hidden -->
+          <input aria-label="검색어" type="search" id="search" required placeholder=" 검색어를 입력하세요">
+          <!-- aria-lable 을 쓰게되면 <label 테그를 따로 쓰지 않아도 접근성 면에서 좋음 -->
+          <button type="submit" class="btn-search">검색</button>
+        </fieldset>
+      </form>
+    </header>
+
+    <section class="top-nav" aria-label="Main Menu" title="Main Menu">
+      <nav class="navigation">
+        <!-- nav 남용 자제할 것 -->
+        <h2 class="offScreen">Main Menu</h2>
+        <button class="btn-menubar" aria-label="a button to open menu">
+          <span class="menubar menubar-top"></span>
+          <span class="menubar menubar-middle"></span>
+          <span class="menubar menubar-bottom"></span>
+        </button>
+        <div class="menu">
+          <div class="about-html menu-list">
+            <span class="menu-item">HTML에 대해</span> <!-- ul 테그 안에 li 외에 올 수 없음 -->
+            <ul class="sub-menu">
+              <li><a href="#">HTML5 소개</a></li>
+              <li><a href="#">레퍼런스 소개</a></li>
+              <li><a href="#">활용예제</a></li>
+            </ul>
+          </div>
+          <div class="about-css menu-list">
+            <span class="menu-item">CSS에 대해</span>
+            <ul class="sub-menu">
+              <li><a href="#">CSS 소개</a></li>
+              <li><a href="#">CSS2 VS CSS3</a></li>
+              <li><a href="#">CSS 애니메이션</a></li>
+            </ul>
+          </div>
+          <div class="web-standard menu-list">
+            <span class="menu-item">웹표준/웹접근성</span>
+            <ul class="sub-menu">
+              <li><a href="#">웹표준 이란?</a></li>
+              <li><a href="#">웹접근성의 개요</a></li>
+              <li><a href="#">HTML5의 현재와 미래</a></li>
+            </ul>
+          </div>
+          <div class="qna menu-list">
+            <span class="menu-item">묻고 답하기</span>
+            <ul class="sub-menu">
+              <li><a href="#">묻고 답하기</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">1대1 질문</a></li>
+            </ul>
+          </div>
+          <div class="files menu-list">
+            <span class="menu-item">자료실</span>
+            <ul class="sub-menu">
+              <li><a href="#">공개 자료실</a></li>
+              <li><a href="#">이미지 자료실</a></li>
+              <li><a href="#">예제 자료실</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <main class="main clearfix">
+      <!-- main 블록은 한 개만 선언할 것 -->
+      <!-- aside : 주요 내용을 제외한 옆, 광고 섹션으로 주로 사용 -->
+      <section class="recommendBook">
+        <h2 class="recommendBook-heading main-section">
+          추천서적
+          <span class="en-heading">
+            Recommend Book
+          </span>
+        </h2>
+        <figure class="recommnedBook-cover">
+          <img src="images/book_rwd.jpg" alt="Responsive-Web-Guide-Book" aria-labelledby="cover-caption">
+          <figcaption id="cover-caption"><strong>Responsive Web Guide Book</strong></figcaption>
+        </figure>
+        <dl class="recommendBook-detail">
+          <dt class="recommendBook-author">저자</dt>
+          <dd class="recommendBook-author-name">김데레사</dd>
+          <dt class="a11y-hidden">rating</dt>
+          <dd class="recommendBook-rating" aria-label="4 out-of 5">★★★★☆</dd>
+        </dl>
+        <p class="recommendBook-summary">
+          반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한 레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한 해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
+        </p>
+      </section>
+
+      <section class="news">
+        <h2 class="news-heading main-section">
+          새소식
+          <span class="en-heading">
+            Web Cafe News
+          </span>
+        </h2>
+        <figure class="news-container">
+          <video class="news-video" poster="./media/poster.jpg" controls preload="auto" muted>
+            <source src="./media/Stories.mp4" type="video/mp4">
+            <track src="media/stories-en.vtt" kind="subtitles" srclang="en" label="english caption">
+          </video>
+          <figcaption class="news-caption offScreen">google developer story</figcaption>
+          <p class="news-summary">
+            구글플레이는 다양한 분야에서 활약하고 있는 국내 개발사들을 모시고 직접 이야기를 나눠보는 ‘구글플레이 개발자와의 대화’ 행사를 정기적으로 개최할 예정입니다. 오늘 3월 29일(수) 구글 캠퍼스
+            서울에서 열린 첫 번째 ‘구글플레이 개발자와의 대화’는 ‘해외에서 빵터진 한국 앱'을 주제로 진행됐는데요, 국내 앱 시장은 물론 글로벌 시장에서도 주목 받으며 글로벌 진출의 본보기가 되고 있는
+            개발사 세 곳과 함께 했습니다.
+          </p>
+          <time class="news-date icon-calendar" datetime="2018-04-02T14:37:02">
+            2018.04.02
+          </time>
+        </figure>
+      </section>
+
+      <section class="board">
+        <h2 class="board-heading main-section" id="board">
+          Board
+          <span class="en-heading">
+            Web Cafe News
+          </span>
+        </h2>
+        <!-- <div class="board-box"> -->
+        <ul class="board-list">
+          <li class="clearfix">
+            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+            <time datetime="2018-04-02">2018.04.02</time>
+          </li>
+          <li class="clearfix">
+            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+            <time datetime="2018-04-02">2018.04.02</time>
+          </li>
+          <li class="clearfix">
+            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+            <time datetime="2018-04-02">2018.04.02</time>
+          </li>
+          <li class="clearfix">
+            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+            <time datetime="2018-04-02">2018.04.02</time>
+          </li>
+          <li class="clearfix">
+            <i class="ion-star"></i><a href="#" class="text-overflow"> HTML의 모든것을 알려주마 샘플 활용법</a>
+            <time datetime="2018-04-02">2018.04.02</time>
+          </li>
+        </ul>
+        <!-- </div> -->
+        <a href="#" title="#board" class="board-more"><i class="ion-plus"></i> More</a>
+      </section>
+
+      <section class="favorite">
+        <h2 class="favorite-heading main-section">
+          Favorite Site
+          <span class="en-heading">
+            Web Cafe News
+          </span>
+        </h2>
+        <ol class="favorite-site-list">
+          <li><a href="#" target="_blank"> Learn CSS Layout</a></li>
+          <li><a href="#" target="_blank"> Flexbox Froggy</a></li>
+          <li><a href="#" target="_blank"> CSS Grid Garden</a></li>
+          <li><a href="#" target="_blank"> MDN Web Docs</a></li>
+        </ol>
+      </section>
+
+      <section class="twitter">
+        <h2 class="twitter-heading main-section">
+          twitter
+          <span class="en-heading">
+            Web Cafe News
+          </span>
+        </h2>
+        <dl class="twitter-user-content">
+          <dt class="offScreen">user name</dt>
+          <dd class="twitter-user-name">김데레사</dd><dt class="offScreen">user id</dt>
+          <dd class="twitter-user-id"><a href="#">@seulbinim</a></dd>
+        </dl>
+        <figure class="twitter-profile">
+          <img src="images/seulbinim.jpg" alt="" class="twitter-thumbnail responsive">
+          <figcaption class="offScreen">user profile </figcaption>
+        </figure>
+        <p class="twitter-summary">
+          웹표준 핵심 가이드북 개정판 출시 기념으로 웹표준 핵심 가이드북 개정판 출시 기념으로 웹표준 핵심 가이드북 개정판 출시 기념으로 웹표준 핵심 가이드북 개정판 출시 기념으로
+        </p>
+        <time datetime="2018-04-02" class="twitter-date icon-calendar">2018.04.02</time>
+      </section>
+    </main>
+
+    <article class="slogan">
+      <h2 class="slogan-heading" title="Web-standard on Web Cafe">Slogan</h2>
+      <p class="slogan-content">
+        <q cite="http://w3.org.WAI">The power of the Web is in its universality, Access by everyone regardless of
+          disability is an essential aspect.</q>
+        Tim Berners - Lee , W3C Director and inventor of the World Wide Web
+      </p>
+      <footer class="offScreen">
+        Ref : www.w3.org/WAI - Web Accessibility Institution
+      </footer>
+    </article>
+
+    <footer class="footer">
+      <address class="address">
+        <span>5th fl Hanjoo-building 123-12 Mapo-gu Sansoo-dong Seoul</span>
+        <span>Tel. <a href="tel:021235090">02-123-5090</a></span>
+        <span>Email: <a href="mailto:beigenut@gmail.com?subject=question">beigenut@gmail.com</a></span>
+      </address>
+      <small class="copyright">
+        copyright since &copy; 2018 by Web Cafe CORPOTATION ALL RIGHTS RESERVED
+      </small>
+    </footer>
+  </div>
+
+  <button class="btn-grid" type="button">Grid</button>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/webcafe.js"></script>
+</body>
+
+</html>
