@@ -24,6 +24,7 @@ $(document).ready(function () {
 
     btnMobile.on('click', function (event) {
       event.preventDefault();
+      console.log('button clicked');
       navMobile.toggleClass('is-act');
       menuMobile.css({
         'transition-property': 'all',
