@@ -8,12 +8,11 @@ $(document).ready(function () {
   var menuLists = $('.menu-list');
   var menuItems = $('.menu-item');
   var subMenus = $('.sub-menu');
-  // var offGrid = $('.btn-grid');
+  var offGrid = $('.btn-grid');
 
   /* matchmedia 를 이용해서 원하는 뷰포트에만 클래스 삽입 */
   var viewport = window.matchMedia('(max-width: 999px)');
   if (viewport.matches) {
-    // offGrid.addClass('offScreen');
     menuItems.addClass('icon-plus');
     menuItems.attr('role', 'button');
     menuItems.attr('aria-expanded', 'false');
@@ -34,7 +33,7 @@ $(document).ready(function () {
         btnMobile.attr('aria-label', 'a button to close menu');
 
       } else {
-        bntMobile.attr('aria-label', 'a button to open menu')
+        btnMobile.attr('aria-label', 'a button to open menu')
 
       }
     });
